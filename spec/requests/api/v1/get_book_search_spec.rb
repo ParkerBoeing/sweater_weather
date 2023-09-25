@@ -43,9 +43,9 @@ RSpec.describe "Book Search Requests", type: :request do
       end
       
       it "returns proper error message for invalid quantity" do
-        get "/api/v1/book-search?location=&quantity=0"
+        get "/api/v1/book-search?location=denvor,co&quantity=0"
         expect(response).to have_http_status(404)
-        expect(response.body).to eq("{\"errors\":[{\"detail\":\"Please enter valid location in this format: city,state(abbreviated).\"}]}")
+        expect(response.body).to eq("{\"errors\":[{\"detail\":\"Please enter valid quantity greater than zero.\"}]}")
       end
     end
   end
