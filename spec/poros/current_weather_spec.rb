@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CurrentWeather, type: :model do
+RSpec.describe CurrentWeather, type: :poro do
   describe 'attributes' do
     let(:data) do
       {
