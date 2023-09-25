@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe CurrentWeather, type: :poro do
+RSpec.describe CurrentWeather do
   describe 'attributes' do
-    let(:data) do
-      {
+    it 'initializes with the correct attributes' do
+      data = {
         last_updated: '2023-09-24 20:15',
         temp_f: 73.9,
         feelslike_f: 77.2,
@@ -15,11 +15,9 @@ RSpec.describe CurrentWeather, type: :poro do
         uv: 1.0,
         vis_miles: 9.0
       }
-    end
-
-    let(:current_weather) { CurrentWeather.new(data) }
-
-    it 'initializes with the correct attributes' do
+      
+      current_weather = CurrentWeather.new(data)
+      
       expect(current_weather.last_updated).to eq('2023-09-24 20:15')
       expect(current_weather.temperature).to eq(73.9)
       expect(current_weather.feels_like).to eq(77.2)
