@@ -5,7 +5,7 @@ class HourlyWeather
               :icon
 
   def initialize(data)
-    @time = data[:time]
+    @time = data[:time][-5, 5]
     @temperature = data[:temp_f]
     @conditions = data[:condition][:text]
     @icon = data[:condition][:icon]
