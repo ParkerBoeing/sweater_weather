@@ -6,6 +6,8 @@ describe LibraryService do
       it "searches for an author", :vcr do
         service = LibraryService.new
         response = service.search_by_location_name("denver,co", 5)
+        expect(response[:numFound]).to eq(772)
+        expect(response[:docs].count).to eq(5)
         expect(response).to be_a Hash
       end
     end
