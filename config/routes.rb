@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "api/v0/forecast", to: "api/v0/forecasts#show"
-  get "api/v1/book-search", to "api/v1/books#search"
+  get "api/v1/book-search", to: "api/v1/books#search"
 end

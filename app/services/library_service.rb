@@ -8,8 +8,8 @@ class LibraryService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def search_author(author)
-    url = "search/authors.json?q=#{author}"
+  def search_by_location_name(location, quantity = 5)
+    url = "search.json?q=#{location}&limit=#{quantity}"
     get_url(url)
   end
 end
