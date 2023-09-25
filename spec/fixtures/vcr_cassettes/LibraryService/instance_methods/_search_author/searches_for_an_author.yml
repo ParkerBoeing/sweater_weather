@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://openlibrary.org/search/authors.json?q=jk%20rowling
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.11
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Mon, 25 Sep 2023 02:05:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Method:
+      - GET, OPTIONS
+      Access-Control-Max-Age:
+      - '86400'
+      X-Ol-Stats:
+      - '"SR 1 0.023 TT 0 0.023"'
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+    body:
+      encoding: UTF-8
+      string: '{"numFound": 2, "start": 0, "numFoundExact": true, "docs": [{"key":
+        "OL23919A", "type": "author", "name": "J. K. Rowling", "alternate_names":
+        ["Joanne Rowling", "Joanne K. Rowling", "Jo Murray", "Kennilworthy Whisp",
+        "JK Rowling", "Robert Galbraith", "\u0414\u0436\u043e\u0430\u043d \u0420\u043e\u0443\u043b\u0456\u043d\u0433",
+        "Dzhoan Rouling", "J.K. Rowling", "ROWLING", "\u0631\u0648\u0628\u0631\u062a
+        \u063a\u0627\u0644\u0628\u0631\u064a\u062b - Robert Galbraith", "Rouling Dzh.K.",
+        "Newt Scamander", "Newton Scamander", "J. K Rowling (creator) Jack Thorne",
+        "J.k. Rowling", "Rowling.J.K.", "J K Rowling", "J. K Rowling", "J-K Rowling"],
+        "birth_date": "31 July 1965", "top_work": "Harry Potter and the Philosopher''s
+        Stone", "work_count": 465, "top_subjects": ["Children''s fiction", "Fantasy
+        fiction", "Wizards, fiction", "Fiction", "England, fiction", "Potter, harry
+        (fictitious character), fiction", "Schools, fiction", "Magic, fiction", "Hogwarts
+        school of witchcraft and wizardry (imaginary organization), fiction", "New
+        York Times bestseller"], "_version_": 1771416132964581396}, {"key": "OL12644992A",
+        "type": "author", "name": "Rowling JK", "top_work": "Harry Potter 6 Harry
+        Potter i Ksiaze P\u00f3lkrwi", "work_count": 2, "_version_": 1767966878644305925}]}'
+  recorded_at: Mon, 25 Sep 2023 02:05:05 GMT
+recorded_with: VCR 6.2.0
