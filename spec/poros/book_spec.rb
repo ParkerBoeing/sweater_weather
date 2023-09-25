@@ -1,21 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Location do
+RSpec.describe Book do
   describe 'attributes' do
     it 'has readable attributes' do
       data = {
-        city: 'Denver',
-        state: 'CO',
-        lat: 39.7392,
-        lon: -104.9903
+        isbn: '1234',
+        title: 'CO',
+        publisher: ["Penguin Co"]
       }
       
-      location = Location.new(data)
+      book = Book.new(data)
       
-      expect(location.city).to eq('Denver')
-      expect(location.state).to eq('CO')
-      expect(location.lat).to eq(39.7392)
-      expect(location.lon).to eq(-104.9903)
+      expect(book.isbn).to eq('1234')
+      expect(book.title).to eq('CO')
+      expect(book.publisher).to eq(["Penguin Co"])
     end
   end
 end
