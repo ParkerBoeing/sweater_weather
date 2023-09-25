@@ -25,5 +25,54 @@ RSpec.describe "Users Requests", type: :request do
         expect(attributes).to have_key(:api_key)
       end
     end
+
+    describe "sad path", :vcr do
+      it "returns an error message for duplicate user" do
+        user_params = {
+          email: "whatever2@example.com",
+          password: "password123",
+          password_confirmation: "password123"
+        }
+        post "/api/v0/users", params: user_params
+        expect(response).to have_http_status(:success)
+        post "/api/v0/users", params: user_params
+        expect(response.status).to eq(400)
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to eq({"error"=>"Validation failed: Email has already been taken"})     
+      end
+
+      it "returns an error message if password and confirmation dont match" do
+        user_params = {
+          email: "whatever@example.com",
+          password: "password",
+          password_confirmation: "password123"
+        }
+        post "/api/v0/users", params: user_params
+        expect(response.status).to eq(400)
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to eq({"error"=>"Validation failed: Password confirmation doesn't match Password"})
+      end
+
+      it "returns an error for missing parameters" do
+        user_params = {
+          email: "whatever@example.com",
+          password: "",
+          password_confirmation: ""
+        }
+        post "/api/v0/users", params: user_params
+        expect(response.status).to eq(400)
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to eq({"error"=>"Validation failed: Password can't be blank, Password can't be blank"})
+        
+        user_params = {
+          email: "",
+          password: "password123",
+          password_confirmation: "password123"
+        }
+        post "/api/v0/users", params: user_params
+        parsed_response = JSON.parse(response.body)
+        expect(parsed_response).to eq({"error"=>"Validation failed: Email can't be blank"})
+      end
+    end
   end
 end
