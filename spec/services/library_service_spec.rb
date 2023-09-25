@@ -6,7 +6,6 @@ describe LibraryService do
       it "searches for an author", :vcr do
         service = LibraryService.new
         response = service.search_by_location_name("denver,co", 5)
-        require 'pry'; binding.pry
         expect(response).to be_a Hash
       end
     end
