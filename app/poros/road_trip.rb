@@ -8,7 +8,7 @@ class RoadTrip
     @formatted_time = data[:formatted_time]
   end
 
-  def time_to_hours
-    ((raw_time.to_f / 60) / 60).to_i
+  def format_arrival_time
+    (Time.now + raw_time).strftime("%Y-%m-%d %H:%M:%S")
   end
 end
