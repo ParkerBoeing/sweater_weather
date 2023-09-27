@@ -34,5 +34,14 @@ describe LocationService do
               :mapUrl=>""}]}]})
       end
     end
+
+    describe "#get_road_trip" do
+      it "returns the information for a given road trip origin and destination", :vcr do
+        location_service = LocationService.new
+        data = location_service.get_road_trip("cincinatti,oh", "slade,ky")
+        expect(data).to be_a Hash
+        expect(data).to have_key(:route)
+      end
+    end
   end
 end
