@@ -15,7 +15,7 @@ class RoadTripSerializer
               "travel_time": @road_trip.formatted_time,
               "weather_at_eta": {
                   "datetime": @road_trip.format_arrival_time,
-                  "temperature": "#{@forecast.temperature} F",
+                  "temperature": @forecast.temperature,
                   "condition": @forecast.conditions
               }}}}
   end
@@ -31,7 +31,7 @@ class RoadTripSerializer
               "travel_time": @road_trip.formatted_time,
               "weather_at_eta": {
                   "datetime": @road_trip.format_arrival_time,
-                  "temperature": "#{((@forecast.max_temp + @forecast.min_temp) / 2).round(1)} F",
+                  "temperature": @forecast.max_temp,
                   "condition": @forecast.condition
               }}}}
   end
