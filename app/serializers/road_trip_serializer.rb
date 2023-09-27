@@ -14,8 +14,8 @@ class RoadTripSerializer
               "end_city": @road_trip.destination,
               "travel_time": @road_trip.formatted_time,
               "weather_at_eta": {
-                  "datetime": (Time.now + @road_trip.raw_time).strftime("%Y-%m-%d %H:%M:%S"),
-                  "temperature": "#{@forecast.temperature} F",
+                  "datetime": @road_trip.format_arrival_time,
+                  "temperature": @forecast.temperature,
                   "condition": @forecast.conditions
               }}}}
   end
@@ -30,8 +30,8 @@ class RoadTripSerializer
               "end_city": @road_trip.destination,
               "travel_time": @road_trip.formatted_time,
               "weather_at_eta": {
-                  "datetime": (Time.now + @road_trip.raw_time).strftime("%Y-%m-%d %H:%M:%S"),
-                  "temperature": "#{((@forecast.max_temp + @forecast.min_temp) / 2).round(1)} F",
+                  "datetime": @road_trip.format_arrival_time,
+                  "temperature": @forecast.max_temp,
                   "condition": @forecast.condition
               }}}}
   end
