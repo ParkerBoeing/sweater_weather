@@ -13,4 +13,10 @@ class LocationService
     url = "geocoding/v1/address?key=#{api_key}&location=#{location}"
     get_url(url)
   end
+
+  def get_road_trip(origin, destination)
+    api_key = Rails.application.credentials.location_api[:key]
+    url = "directions/v2/route?key=#{api_key}&from=#{origin}&to=#{destination}"
+    get_url(url)
+  end
 end
